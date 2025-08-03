@@ -1,7 +1,5 @@
 # fmt2
 
-# fmt2
-
 A simplified input/output helper package for Go beginners, inspired by Python's simplicity.
 
 ## Installation
