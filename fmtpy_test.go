@@ -1,4 +1,4 @@
-package fmt2
+package fmtpy
 
 import (
 	"testing"
