@@ -32,6 +32,7 @@ func main() {
     fmtpy.Print(42)
 }
 ```
+<img width="684" height="561" alt="image" src="https://github.com/user-attachments/assets/ab0f4abb-0229-49b5-a1e2-8a88a4cd963f" />
 
 ## Features
 
