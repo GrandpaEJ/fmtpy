@@ -1,3 +1,3 @@
-module fmt2
+module fmtpy
 
 go 1.24.5
