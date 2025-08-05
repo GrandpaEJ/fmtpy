@@ -1,11 +1,11 @@
-# fmt2
+# fmtpy
 
 A simplified input/output helper package for Go beginners, inspired by Python's simplicity.
 
 ## Installation
 
 ```bash
-go get github.com/GrandpaEJ/fmt2
+go get github.com/GrandpaEJ/fmtpy
 ```
 
 ## Usage
@@ -13,23 +13,23 @@ go get github.com/GrandpaEJ/fmt2
 ```go
 package main
 
-import "github.com/GrandpaEJ/fmt2"
+import "github.com/GrandpaEJ/fmtpy"
 
 func main() {
     // Get input from user
-    name := fmt2.Input("Enter your name: ")
-    age := fmt2.Input("Enter your age: 
+    name := fmtpy.Input("Enter your name: ")
+    age := fmtpy.Input("Enter your age: 
 ")  // With newline
 
     // Print using Go style formatting
-    fmt2.Print("Your name is %s and age is %s", name, age)
+    fmtpy.Print("Your name is %s and age is %s", name, age)
 
     // Print using Python-style formatting
-    fmt2.Print(f"Your name is {name} and age is {age}")
+    fmtpy.Print(f"Your name is {name} and age is {age}")
 
     // Simple printing
-    fmt2.Print("Hello World!")
-    fmt2.Print(42)
+    fmtpy.Print("Hello World!")
+    fmtpy.Print(42)
 }
 ```
 
