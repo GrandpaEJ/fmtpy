@@ -5,7 +5,7 @@ A simplified input/output helper package for Go beginners, inspired by Python's 
 ## Installation
 
 ```bash
-go get github.com/GrandpaEJ/fmtpy
+go get github.com/grandpaej/fmtpy
 ```
 
 ## Usage
@@ -13,24 +13,29 @@ go get github.com/GrandpaEJ/fmtpy
 ```go
 package main
 
-import "github.com/GrandpaEJ/fmtpy"
+import (
+	"fmt"
+
+	"github.com/grandpaej/fmtpy"
+)
 
 func main() {
-    // Get input from user
-    name := fmtpy.Input("Enter your name: ")
-    age := fmtpy.Input("Enter your age: 
-")  // With newline
+	// Get input from user
+	name := fmtpy.Input("Enter your name: ")
+	age := fmtpy.Input("Enter your age: \n") // With newline
 
-    // Print using Go style formatting
-    fmtpy.Print("Your name is %s and age is %s", name, age)
+	// Print using Python-style formatting
+	fmtpy.Print("f\"Your name is {name} and age is {age}\"", name, age)
 
-    // Print using Python-style formatting
-    fmtpy.Print(f"Your name is {name} and age is {age}")
+	// Simple printing
+	fmtpy.Print("Hello World!")
+	fmtpy.Print(42)
 
-    // Simple printing
-    fmtpy.Print("Hello World!")
-    fmtpy.Print(42)
+	// Input type
+	fmt.Printf("Type of name: %T\n", name) // Output: Type of name: string
+	fmt.Printf("Type of age: %T\n", age)   // Output: Type of age: string
 }
+
 ```
 <img width="684" height="561" alt="image" src="https://github.com/user-attachments/assets/ab0f4abb-0229-49b5-a1e2-8a88a4cd963f" />
 
