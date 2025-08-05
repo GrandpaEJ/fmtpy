@@ -1,5 +1,5 @@
-// Package fmt2 provides simplified input/output helpers for Go beginners
-package fmt2
+// Package fmtpy provides simplified input/output helpers for Go beginners
+package fmtpy
 
 import (
 	"bufio"
