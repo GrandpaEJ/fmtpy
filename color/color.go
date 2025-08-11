@@ -135,7 +135,90 @@ func (c *Color) wrap(text string) string {
 	return strings.Join(format, "") + text + "\033[0m"
 }
 
-// Text color functions
+// Simple color functions that work with any type - perfect for fmt.Print, fmt.Println, fmt.Printf
+func Red(v interface{}) string {
+	return New(FgRed).Sprint(v)
+}
+
+func Green(v interface{}) string {
+	return New(FgGreen).Sprint(v)
+}
+
+func Blue(v interface{}) string {
+	return New(FgBlue).Sprint(v)
+}
+
+func Yellow(v interface{}) string {
+	return New(FgYellow).Sprint(v)
+}
+
+func Magenta(v interface{}) string {
+	return New(FgMagenta).Sprint(v)
+}
+
+func Cyan(v interface{}) string {
+	return New(FgCyan).Sprint(v)
+}
+
+func White(v interface{}) string {
+	return New(FgWhite).Sprint(v)
+}
+
+func Black(v interface{}) string {
+	return New(FgBlack).Sprint(v)
+}
+
+// Bold color functions
+func BoldRed(v interface{}) string {
+	return New(Bold, FgRed).Sprint(v)
+}
+
+func BoldGreen(v interface{}) string {
+	return New(Bold, FgGreen).Sprint(v)
+}
+
+func BoldBlue(v interface{}) string {
+	return New(Bold, FgBlue).Sprint(v)
+}
+
+func BoldYellow(v interface{}) string {
+	return New(Bold, FgYellow).Sprint(v)
+}
+
+func BoldMagenta(v interface{}) string {
+	return New(Bold, FgMagenta).Sprint(v)
+}
+
+func BoldCyan(v interface{}) string {
+	return New(Bold, FgCyan).Sprint(v)
+}
+
+// Background color functions
+func OnRed(v interface{}) string {
+	return New(BgRed).Sprint(v)
+}
+
+func OnGreen(v interface{}) string {
+	return New(BgGreen).Sprint(v)
+}
+
+func OnBlue(v interface{}) string {
+	return New(BgBlue).Sprint(v)
+}
+
+func OnYellow(v interface{}) string {
+	return New(BgYellow).Sprint(v)
+}
+
+func OnMagenta(v interface{}) string {
+	return New(BgMagenta).Sprint(v)
+}
+
+func OnCyan(v interface{}) string {
+	return New(BgCyan).Sprint(v)
+}
+
+// Text color functions (legacy - for backward compatibility)
 func RedText(template string, args ...interface{}) string {
 	return New(FgRed).Format(template, args...)
 }

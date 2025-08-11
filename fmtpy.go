@@ -5,17 +5,53 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
 var reader = bufio.NewReader(os.Stdin)
 
-// Input prompts the user for input and returns the entered string
-// If the prompt ends with \n, it will be printed on a new line
-func Input(prompt string) string {
+// InputValue is a special type that can convert to different types
+type InputValue string
+
+// String returns the string value
+func (iv InputValue) String() string {
+	return string(iv)
+}
+
+// Int converts to integer, returns 0 if conversion fails
+func (iv InputValue) Int() int {
+	if i, err := strconv.Atoi(strings.TrimSpace(string(iv))); err == nil {
+		return i
+	}
+	return 0
+}
+
+// Float converts to float64, returns 0.0 if conversion fails
+func (iv InputValue) Float() float64 {
+	if f, err := strconv.ParseFloat(strings.TrimSpace(string(iv)), 64); err == nil {
+		return f
+	}
+	return 0.0
+}
+
+// Bool converts to boolean (y/yes/true/1 = true, everything else = false)
+func (iv InputValue) Bool() bool {
+	s := strings.ToLower(strings.TrimSpace(string(iv)))
+	return s == "y" || s == "yes" || s == "true" || s == "1"
+}
+
+// Input prompts the user for input and returns an InputValue that can be converted to any type
+// Usage examples:
+//
+//	name := Input("Enter name: ").String()
+//	var age int = Input("Enter age: ").Int()
+//	score := Input("Enter score: ").Float()
+//	confirmed := Input("Confirm (y/n): ").Bool()
+func Input(prompt string) InputValue {
 	fmt.Print(prompt)
 	text, _ := reader.ReadString('\n')
-	return strings.TrimSpace(text)
+	return InputValue(strings.TrimSpace(text))
 }
 
 // Print formats and prints the given values.
@@ -61,7 +97,7 @@ func Print(format interface{}, args ...interface{}) {
 func convertPythonStyle(s string) string {
 	var result strings.Builder
 	inBrace := false
-	
+
 	for i := 0; i < len(s); i++ {
 		if s[i] == '{' {
 			inBrace = true
@@ -76,6 +112,6 @@ func convertPythonStyle(s string) string {
 			result.WriteByte(s[i])
 		}
 	}
-	
+
 	return result.String()
 }
