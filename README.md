@@ -5,7 +5,7 @@ A simplified input/output helper package for Go beginners, inspired by Python's 
 ## Installation
 
 ```bash
-go get github.com/grandpaej/fmtpy@v2.0.0
+go get github.com/grandpaej/fmtpy
 ```
 
 ## Features
