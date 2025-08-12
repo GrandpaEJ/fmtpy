@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/grandpaej/fmtpy/color"
+
+	"github.com/grandpaej/fmtpy/v2/color"
 )
 
 func main() {
@@ -48,26 +49,26 @@ func main() {
 
 	// Using with fmt functions
 	fmt.Println(color.Green("\n📝 Using with fmt Functions:"))
-	
+
 	// fmt.Print
 	fmt.Print("fmt.Print: ")
 	fmt.Print(color.Red("Red "))
 	fmt.Print(color.Green("Green "))
 	fmt.Print(color.Blue("Blue"))
 	fmt.Println()
-	
+
 	// fmt.Println
 	fmt.Println("fmt.Println:", color.Yellow("Yellow text"))
-	
+
 	// fmt.Printf
 	name := "Alice"
 	age := 25
-	fmt.Printf("fmt.Printf: Hello %s, you are %s years old!\n", 
+	fmt.Printf("fmt.Printf: Hello %s, you are %s years old!\n",
 		color.Cyan(name), color.Magenta(age))
 
 	// Practical Examples
 	fmt.Println(color.Green("\n🛠️  Practical Examples:"))
-	
+
 	// Status messages
 	fmt.Printf("✅ %s\n", color.BoldGreen("Operation completed successfully"))
 	fmt.Printf("⚠️  %s\n", color.BoldYellow("Warning: Check your input"))
@@ -76,13 +77,13 @@ func main() {
 
 	// Progress indicators
 	fmt.Println(color.Green("\n📊 Progress Indicators:"))
-	fmt.Printf("[%s%s%s] 33%%\n", 
-		color.Green("███"), 
-		color.White("      "), 
+	fmt.Printf("[%s%s%s] 33%%\n",
+		color.Green("███"),
+		color.White("      "),
 		color.White(""))
-	fmt.Printf("[%s%s%s] 66%%\n", 
-		color.Green("██████"), 
-		color.White("   "), 
+	fmt.Printf("[%s%s%s] 66%%\n",
+		color.Green("██████"),
+		color.White("   "),
 		color.White(""))
 	fmt.Printf("[%s] 100%%\n", color.Green("█████████"))
 
@@ -96,30 +97,30 @@ func main() {
 
 	// Highlighting code
 	fmt.Println(color.Green("\n💻 Code Highlighting:"))
-	fmt.Printf("%s %s%s%s {\n", 
-		color.Blue("func"), 
-		color.Yellow("main"), 
-		color.White("()"), 
+	fmt.Printf("%s %s%s%s {\n",
+		color.Blue("func"),
+		color.Yellow("main"),
+		color.White("()"),
 		color.White(""))
-	fmt.Printf("    %s.%s(%s)\n", 
-		color.Green("fmt"), 
-		color.Yellow("Println"), 
+	fmt.Printf("    %s.%s(%s)\n",
+		color.Green("fmt"),
+		color.Yellow("Println"),
 		color.Red("\"Hello, World!\""))
 	fmt.Printf("}\n")
 
 	// Table-like output
 	fmt.Println(color.Green("\n📊 Table Output:"))
-	fmt.Printf("| %-15s | %-10s | %-8s |\n", 
-		color.BoldCyan("Name"), 
-		color.BoldCyan("Age"), 
+	fmt.Printf("| %-15s | %-10s | %-8s |\n",
+		color.BoldCyan("Name"),
+		color.BoldCyan("Age"),
 		color.BoldCyan("Status"))
-	fmt.Printf("| %-15s | %-10s | %-8s |\n", 
-		color.White("Alice"), 
-		color.Yellow("25"), 
+	fmt.Printf("| %-15s | %-10s | %-8s |\n",
+		color.White("Alice"),
+		color.Yellow("25"),
 		color.Green("Active"))
-	fmt.Printf("| %-15s | %-10s | %-8s |\n", 
-		color.White("Bob"), 
-		color.Yellow("30"), 
+	fmt.Printf("| %-15s | %-10s | %-8s |\n",
+		color.White("Bob"),
+		color.Yellow("30"),
 		color.Red("Inactive"))
 
 	fmt.Println(color.BoldMagenta("\n🎉 That's the power of fmtpy colors!"))

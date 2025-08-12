@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/grandpaej/fmtpy"
-	"github.com/grandpaej/fmtpy/color"
-	"github.com/grandpaej/fmtpy/input"
+
+	"github.com/grandpaej/fmtpy/v2"
+	"github.com/grandpaej/fmtpy/v2/color"
+	"github.com/grandpaej/fmtpy/v2/input"
 )
 
 // User represents a user profile
@@ -19,13 +20,13 @@ type User struct {
 func main() {
 	fmt.Println(color.BoldCyan("🚀 Welcome to User Profile Manager"))
 	fmt.Println(color.Green("Built with fmtpy - showcasing real-world usage"))
-	
+
 	// Create user profile
 	user := createUserProfile()
-	
+
 	// Display profile
 	displayUserProfile(user)
-	
+
 	// Interactive menu
 	for {
 		choice := showMenu()
@@ -33,26 +34,26 @@ func main() {
 			break
 		}
 	}
-	
+
 	fmt.Println(color.BoldGreen("👋 Thank you for using User Profile Manager!"))
 }
 
 func createUserProfile() User {
 	fmt.Println(color.BoldYellow("\n📝 Create User Profile"))
-	
+
 	// Get user input with validation
 	var name string
 	for {
 		name = fmtpy.Input("Enter your name: ").String()
 		name = input.Trim(name)
-		
+
 		if !input.IsEmpty(name) && input.IsLetter(input.RemoveSpaces(name)) {
 			name = input.Title(name) // Capitalize properly
 			break
 		}
 		fmt.Println(color.Red("❌ Please enter a valid name (letters only)"))
 	}
-	
+
 	// Get age with validation
 	var age int
 	for {
@@ -62,19 +63,19 @@ func createUserProfile() User {
 		}
 		fmt.Println(color.Red("❌ Age must be between 18 and 100"))
 	}
-	
+
 	// Get email with basic validation
 	var email string
 	for {
 		email = fmtpy.Input("Enter your email: ").String()
 		email = input.Lower(input.Trim(email))
-		
+
 		if input.Contains(email, "@") && input.Contains(email, ".") && !input.IsEmpty(email) {
 			break
 		}
 		fmt.Println(color.Red("❌ Please enter a valid email address"))
 	}
-	
+
 	// Get score
 	var score float64
 	for {
@@ -84,10 +85,10 @@ func createUserProfile() User {
 		}
 		fmt.Println(color.Red("❌ Score must be between 0.0 and 100.0"))
 	}
-	
+
 	// Get active status
 	isActive := fmtpy.Input("Are you an active user? (y/n): ").Bool()
-	
+
 	return User{
 		Name:     name,
 		Age:      age,
@@ -100,12 +101,12 @@ func createUserProfile() User {
 func displayUserProfile(user User) {
 	fmt.Println(color.BoldMagenta("\n👤 User Profile"))
 	fmt.Println(color.Cyan("═══════════════════════════════════"))
-	
+
 	// Display with colors based on data
 	fmt.Printf("📛 Name: %s\n", color.BoldBlue(user.Name))
 	fmt.Printf("🎂 Age: %s years old\n", color.Yellow(user.Age))
 	fmt.Printf("📧 Email: %s\n", color.Green(user.Email))
-	
+
 	// Color-coded score
 	var scoreColor func(interface{}) string
 	switch {
@@ -119,7 +120,7 @@ func displayUserProfile(user User) {
 		scoreColor = color.Red
 	}
 	fmt.Printf("📊 Score: %s/100\n", scoreColor(user.Score))
-	
+
 	// Status with appropriate color
 	status := "Inactive"
 	statusColor := color.Red
@@ -128,7 +129,7 @@ func displayUserProfile(user User) {
 		statusColor = color.BoldGreen
 	}
 	fmt.Printf("🔘 Status: %s\n", statusColor(status))
-	
+
 	// Additional info
 	fmt.Printf("📏 Name length: %s characters\n", color.Cyan(input.Length(user.Name)))
 	fmt.Printf("🔤 Name reversed: %s\n", color.Magenta(input.Reverse(user.Name)))
@@ -145,7 +146,7 @@ func showMenu() int {
 	fmt.Println("6. " + color.White("Show profile"))
 	fmt.Println("7. " + color.BoldYellow("Profile statistics"))
 	fmt.Println("8. " + color.Red("Exit"))
-	
+
 	return fmtpy.Input("Choose an option (1-8): ").Int()
 }
 
@@ -177,7 +178,7 @@ func updateName(user *User) {
 	fmt.Printf("Current name: %s\n", color.Blue(user.Name))
 	newName := fmtpy.Input("Enter new name: ").String()
 	newName = input.Title(input.Trim(newName))
-	
+
 	if !input.IsEmpty(newName) {
 		user.Name = newName
 		fmt.Printf("✅ Name updated to: %s\n", color.Green(user.Name))
@@ -189,7 +190,7 @@ func updateName(user *User) {
 func updateAge(user *User) {
 	fmt.Printf("Current age: %s\n", color.Yellow(user.Age))
 	newAge := fmtpy.Input("Enter new age: ").Int()
-	
+
 	if newAge >= 18 && newAge <= 100 {
 		user.Age = newAge
 		fmt.Printf("✅ Age updated to: %s\n", color.Green(user.Age))
@@ -202,7 +203,7 @@ func updateEmail(user *User) {
 	fmt.Printf("Current email: %s\n", color.Green(user.Email))
 	newEmail := fmtpy.Input("Enter new email: ").String()
 	newEmail = input.Lower(input.Trim(newEmail))
-	
+
 	if input.Contains(newEmail, "@") && input.Contains(newEmail, ".") {
 		user.Email = newEmail
 		fmt.Printf("✅ Email updated to: %s\n", color.Green(user.Email))
@@ -214,7 +215,7 @@ func updateEmail(user *User) {
 func updateScore(user *User) {
 	fmt.Printf("Current score: %s\n", color.Yellow(user.Score))
 	newScore := fmtpy.Input("Enter new score: ").Float()
-	
+
 	if newScore >= 0.0 && newScore <= 100.0 {
 		user.Score = newScore
 		fmt.Printf("✅ Score updated to: %s\n", color.Green(user.Score))
@@ -237,7 +238,7 @@ func toggleActiveStatus(user *User) {
 func showProfileStatistics(user User) {
 	fmt.Println(color.BoldCyan("\n📊 Profile Statistics"))
 	fmt.Println(color.Cyan("═══════════════════════════════"))
-	
+
 	// Name analysis
 	nameStats := analyzeText(user.Name)
 	fmt.Printf("📛 Name Analysis:\n")
@@ -246,14 +247,14 @@ func showProfileStatistics(user User) {
 	fmt.Printf("   First word: %s\n", color.Blue(nameStats.FirstWord))
 	fmt.Printf("   Uppercase: %s\n", color.Red(nameStats.Uppercase))
 	fmt.Printf("   Lowercase: %s\n", color.Magenta(nameStats.Lowercase))
-	
+
 	// Email analysis
 	emailStats := analyzeText(user.Email)
 	fmt.Printf("\n📧 Email Analysis:\n")
 	fmt.Printf("   Length: %s characters\n", color.Yellow(emailStats.Length))
 	fmt.Printf("   Domain: %s\n", color.Green(getDomain(user.Email)))
 	fmt.Printf("   Contains numbers: %s\n", color.Blue(input.Contains(user.Email, input.OnlyNumbers(user.Email))))
-	
+
 	// Score analysis
 	fmt.Printf("\n📊 Score Analysis:\n")
 	grade := getGrade(user.Score)

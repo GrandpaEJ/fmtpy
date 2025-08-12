@@ -3,7 +3,7 @@ package fmtpy
 import (
 	"testing"
 
-	"github.com/grandpaej/fmtpy/input"
+	"github.com/grandpaej/fmtpy/v2/input"
 )
 
 func TestConvertPythonStyle(t *testing.T) {
