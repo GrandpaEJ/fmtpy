@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/grandpaej/fmtpy/v2"
-	"github.com/grandpaej/fmtpy/v2/color"
-	"github.com/grandpaej/fmtpy/v2/input"
+	"github.com/grandpaej/fmtpy"
+	"github.com/grandpaej/fmtpy/color"
+	"github.com/grandpaej/fmtpy/input"
 )
 
 // User represents a user profile

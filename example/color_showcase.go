@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/grandpaej/fmtpy/v2/color"
+	"github.com/grandpaej/fmtpy/color"
 )
 
 func main() {

@@ -5,7 +5,7 @@ A simplified input/output helper package for Go beginners, inspired by Python's 
 ## Installation
 
 ```bash
-go get github.com/grandpaej/fmtpy/v2@v2.0.0
+go get github.com/grandpaej/fmtpy@v2.0.0
 ```
 
 ## Features
@@ -23,9 +23,9 @@ go get github.com/grandpaej/fmtpy/v2@v2.0.0
 
 ```go
 import (
-    "github.com/grandpaej/fmtpy/v2"        // Core input/output
-    "github.com/grandpaej/fmtpy/v2/color" // Color functions
-    "github.com/grandpaej/fmtpy/v2/input" // String manipulation
+    "github.com/grandpaej/fmtpy"        // Core input/output
+    "github.com/grandpaej/fmtpy/color" // Color functions
+    "github.com/grandpaej/fmtpy/input" // String manipulation
 )
 ```
 
@@ -38,7 +38,7 @@ package main
 
 import (
     "fmt"
-    "github.com/grandpaej/fmtpy/v2"
+    "github.com/grandpaej/fmtpy"
 )
 
 func main() {
@@ -64,7 +64,7 @@ package main
 
 import (
     "fmt"
-    "github.com/grandpaej/fmtpy/v2/color"
+    "github.com/grandpaej/fmtpy/color"
 )
 
 func main() {
@@ -92,7 +92,7 @@ package main
 
 import (
     "fmt"
-    "github.com/grandpaej/fmtpy/v2/color"
+    "github.com/grandpaej/fmtpy/color"
 )
 
 func main() {
@@ -219,8 +219,8 @@ package main
 
 import (
     "fmt"
-    "github.com/grandpaej/fmtpy/v2"
-    "github.com/grandpaej/fmtpy/v2/input"
+    "github.com/grandpaej/fmtpy"
+    "github.com/grandpaej/fmtpy/input"
 )
 
 func main() {
@@ -269,9 +269,9 @@ package main
 
 import (
     "fmt"
-    "github.com/grandpaej/fmtpy/v2"
-    "github.com/grandpaej/fmtpy/v2/color"
-    "github.com/grandpaej/fmtpy/v2/input"
+    "github.com/grandpaej/fmtpy"
+    "github.com/grandpaej/fmtpy/color"
+    "github.com/grandpaej/fmtpy/input"
 )
 
 func main() {
