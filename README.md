@@ -496,7 +496,7 @@ go test ./...
 
 ## 📄 License
 
-MIT License
+[MIT License](./LICENSE)
 
 ## 🎯 Why fmtpy?
 
